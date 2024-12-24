@@ -1,0 +1,37 @@
+{
+  "name": "@vuics/selfdev-js",
+  "version": "1.0.0",
+  "description": "A Command Line Interface (CLI) tool to interact with the Self-developing over API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "pub": "npm publish --access public",
+    "inst": "npm i -g @vuics/selfdev-js",
+    "uninst": "npm un -g @vuics/selfdev-js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "selfdev-js": "src/index.js",
+    "selfdev": "src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ai-az1/selfdev-js"
+  },
+  "keywords": [
+    "selfdev",
+    "self-developing",
+    "API",
+    "command line interface",
+    "CLI"
+  ],
+  "author": "Artem Arakcheev <artarakcheev@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.8"
+  }
+}
