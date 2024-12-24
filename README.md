@@ -45,7 +45,21 @@ selfdev ask --prompt='What is a self-developing AI?'
 ```
 Example output:
 ```
-TBS
+Self-developing AI refers to artificial intelligence systems that have the capability to autonomously improve, adapt, or develop their own algorithms and functionalities based on their experiences, interactions, or the data they process. This concept typically encompasses several key features:
+
+1. **Learning from Experience**: Self-developing AI can learn from its past actions and the outcomes of those actions, refining its models and strategies over time to enhance performance.
+
+2. **Autonomous Improvement**: Such systems can modify their own architecture or algorithms without human intervention to better solve problems or adapt to new environments.
+
+3. **Exploration and Exploitation**: They can balance exploring new strategies or approaches (exploration) with leveraging what they already know to maximize performance (exploitation).
+
+4. **Continuous Learning**: Self-developing AI systems often employ reinforcement learning or other adaptive methods that allow them to continuously learn and evolve as they encounter new data or scenarios.
+
+5. **Meta-Learning**: Sometimes referred to as "learning to learn," this involves creating models that can adapt their learning strategies based on the tasks they are faced with.
+
+6. **Generative Models**: Some self-developing AI systems may utilize generative models to create new hypotheses or ideas, which can then be tested and refined.
+
+It's important to note that while the idea of self-developing AI is a significant area of research and promises many benefits, it also raises ethical and safety concerns. For example, if AI systems operate without sufficient oversight, they could make decisions that are unintended or harmful. As such, the development and deployment of self-developing AI systems necessitate careful consideration of governance, accountability, and ethical implications.
 ```
 
 ## Use in Jupyter Notebook
