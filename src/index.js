@@ -29,7 +29,7 @@ ${appName} <command> [arguments]
 Commands:
   ask --prompt='text'
   mail [--from='email'] [--to='email'] --subject='text' --text='text'
-  land --body='html' [--title='text'] [--favicon='url']
+  land --body='html' [--title='text'] [--favicon='url'] [--interestForm='true']
 
 Arguments:
   -v - verbose mode
@@ -37,7 +37,7 @@ Arguments:
 Examples:
   ${appName} ask --prompt='What is self-developing AI?'
   ${appName} mail --to='2@az1.ai' --from='admin@vuics.com' --subject='Email Test' --text='Hello, World!'
-  ${appName} land --body='<div>Hello, World!</div>' --title='Title' --favicon='http://oflisback.github.io/react-favicon/img/github.ico'
+  ${appName} land --body='<div>Hello, World!</div>' --title='Title' --favicon='http://oflisback.github.io/react-favicon/img/github.ico' --interestForm='true'
 `
 
 const auth = async () => {
@@ -108,13 +108,14 @@ const mail = async ({ accessToken, to, from, subject, text }) => {
   }
 }
 
-const land = async ({ accessToken, body, title, favicon }) => {
+const land = async ({ accessToken, body, title, favicon, interestForm }) => {
   let res = null
   try {
     res = await axios.post(`${apiUrl}/land/api`, {
       body,
       title,
       favicon,
+      interestForm,
     }, {
       headers: {
         'Authorization': `Bearer ${accessToken}`,
@@ -178,11 +179,13 @@ const main = async () => {
       const body = argv['body'] || ''
       const title = argv['title'] || ''
       const favicon = argv['favicon'] || ''
+      const interestForm = argv['interestForm'] || ''
 
       v && console.log('Land')
       v && console.log('  body:', body)
       v && console.log('  title:', title)
       v && console.log('  favicon:', favicon)
+      v && console.log('  interestForm:', interestForm)
       if (!accessToken) { accessToken = await auth() }
       if (!body) { return console.error('Error: No body specified.') }
       const reply = await land({
@@ -190,6 +193,7 @@ const main = async () => {
         body,
         title,
         favicon,
+        interestForm,
       })
       v && console.log('Reply:')
       console.log(JSON.stringify(reply))
