@@ -1,6 +1,6 @@
 {
   "name": "@vuics/selfdev-js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Command Line Interface (CLI) tool to interact with the Self-developing over API",
   "main": "index.js",
   "type": "module",

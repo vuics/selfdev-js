@@ -148,7 +148,7 @@ const main = async () => {
         prompt,
       })
       v && console.log('Reply:')
-      console.log(reply)
+      console.log(JSON.stringify(reply))
 
     } else if (commands.includes('mail')) {
       const to = argv['to'] || ''
@@ -172,7 +172,7 @@ const main = async () => {
         text,
       })
       v && console.log('Reply:')
-      console.log(reply)
+      console.log(JSON.stringify(reply))
 
     } else if (commands.includes('land')) {
       const body = argv['body'] || ''
@@ -192,7 +192,7 @@ const main = async () => {
         favicon,
       })
       v && console.log('Reply:')
-      console.log(reply)
+      console.log(JSON.stringify(reply))
 
     } else if (commands.includes('help')) {
       console.log(help)
