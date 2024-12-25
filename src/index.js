@@ -29,6 +29,7 @@ ${appName} <command> [arguments]
 Commands:
   ask --prompt='text'
   mail [--from='email'] [--to='email'] --subject='text' --text='text'
+  land --body='html' [--title='text'] [--favicon='url']
 
 Arguments:
   -v - verbose mode
@@ -36,6 +37,7 @@ Arguments:
 Examples:
   ${appName} ask --prompt='What is self-developing AI?'
   ${appName} mail --to='2@az1.ai' --from='admin@vuics.com' --subject='Email Test' --text='Hello, World!'
+  ${appName} land --body='<div>Hello, World!</div>' --title='Title' --favicon='http://oflisback.github.io/react-favicon/img/github.ico'
 `
 
 const auth = async () => {
@@ -106,20 +108,37 @@ const mail = async ({ accessToken, to, from, subject, text }) => {
   }
 }
 
+const land = async ({ accessToken, body, title, favicon }) => {
+  let res = null
+  try {
+    res = await axios.post(`${apiUrl}/land/api`, {
+      body,
+      title,
+      favicon,
+    }, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    // console.log('land res.data:', res.data)
+    return res.data
+  } catch (err) {
+    console.error('Error:', err)
+  }
+}
+
 const main = async () => {
   try {
     let accessToken = null
     const v = argv['v']
     const commands = argv['_']
-    const prompt = argv['prompt'] || ''
-    const to = argv['to'] || ''
-    const from = argv['from'] || ''
-    const subject = argv['subject'] || ''
-    const text = argv['text'] || ''
 
     v && console.log('Arguments:', argv)
 
     if (commands.includes('ask')) {
+      const prompt = argv['prompt'] || ''
+
       v && console.log('Ask')
       v && console.log('  prompt:', prompt)
       if (!accessToken) { accessToken = await auth() }
@@ -132,6 +151,11 @@ const main = async () => {
       console.log(reply)
 
     } else if (commands.includes('mail')) {
+      const to = argv['to'] || ''
+      const from = argv['from'] || ''
+      const subject = argv['subject'] || ''
+      const text = argv['text'] || ''
+
       v && console.log('Mail')
       v && console.log('  to:', to)
       v && console.log('  from:', from)
@@ -146,6 +170,26 @@ const main = async () => {
         to,
         subject,
         text,
+      })
+      v && console.log('Reply:')
+      console.log(reply)
+
+    } else if (commands.includes('land')) {
+      const body = argv['body'] || ''
+      const title = argv['title'] || ''
+      const favicon = argv['favicon'] || ''
+
+      v && console.log('Land')
+      v && console.log('  body:', body)
+      v && console.log('  title:', title)
+      v && console.log('  favicon:', favicon)
+      if (!accessToken) { accessToken = await auth() }
+      if (!body) { return console.error('Error: No body specified.') }
+      const reply = await land({
+        accessToken,
+        body,
+        title,
+        favicon,
       })
       v && console.log('Reply:')
       console.log(reply)

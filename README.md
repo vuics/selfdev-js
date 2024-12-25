@@ -73,6 +73,32 @@ Example output:
 { result: 'ok' }
 ```
 
+### Publish a Landing Page
+
+```bash
+html="""
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html>
+"""
+
+selfdev land --title='My Landing Page' --favicon='http://oflisback.github.io/react-favicon/img/github.ico' --body='{html}'
+```
+Example output:
+```bash
+{ result: 'ok', landingId: '676c057b4a9c5414c3f07132' }
+```
+
+After you get the JSON response from the `selfdev` utility, you can open the web page using the `landingId` value substituting it to the url `http://localhost:3000/landing/{landingId}`.
+
+Open [http://localhost:3000/landing/676c057b4a9c5414c3f07132](http://localhost:3000/landing/676c057b4a9c5414c3f07132).
+
 ## Use in Jupyter Notebook
 
 It is possible to use the selfdev-js directly from your Jupyter Notebooks.
