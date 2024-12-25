@@ -81,16 +81,22 @@ html="""
 <p>My first paragraph.</p>
 """
 
-selfdev land --title='My Landing Page' --favicon='http://oflisback.github.io/react-favicon/img/github.ico' --body='{html}'
+selfdev land --title='My Landing Page' --favicon='http://oflisback.github.io/react-favicon/img/github.ico' --body='{html}' --interestForm='true'
 ```
 Example output:
 ```bash
 { result: 'ok', landingId: '676c057b4a9c5414c3f07132' }
 ```
-
 After you get the JSON response from the `selfdev` utility, you can open the web page using the `landingId` value substituting it to the url `http://localhost:3000/landing/{landingId}`.
 
 Open [http://localhost:3000/landing/676c057b4a9c5414c3f07132](http://localhost:3000/landing/676c057b4a9c5414c3f07132).
+
+### Get Interest
+
+```bash
+selfdev = interest --landingId="{landingId}"
+```
+
 
 ## Use in Jupyter Notebook
 

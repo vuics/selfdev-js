@@ -30,6 +30,7 @@ Commands:
   ask --prompt='text'
   mail [--from='email'] [--to='email'] --subject='text' --text='text'
   land --body='html' [--title='text'] [--favicon='url'] [--interestForm='true']
+  interest --landingId='id'
 
 Arguments:
   -v - verbose mode
@@ -38,6 +39,7 @@ Examples:
   ${appName} ask --prompt='What is self-developing AI?'
   ${appName} mail --to='2@az1.ai' --from='admin@vuics.com' --subject='Email Test' --text='Hello, World!'
   ${appName} land --body='<div>Hello, World!</div>' --title='Title' --favicon='http://oflisback.github.io/react-favicon/img/github.ico' --interestForm='true'
+  ${appName} interest --landingId='676c39ace1a826483fc23c8f'
 `
 
 const auth = async () => {
@@ -129,6 +131,24 @@ const land = async ({ accessToken, body, title, favicon, interestForm }) => {
   }
 }
 
+const interest = async ({ accessToken, landingId }) => {
+  let res = null
+  try {
+    res = await axios.post(`${apiUrl}/interest/api`, {
+      landingId
+    }, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    // console.log('land res.data:', res.data)
+    return res.data
+  } catch (err) {
+    console.error('Error:', err)
+  }
+}
+
 const main = async () => {
   try {
     let accessToken = null
@@ -194,6 +214,20 @@ const main = async () => {
         title,
         favicon,
         interestForm,
+      })
+      v && console.log('Reply:')
+      console.log(JSON.stringify(reply))
+
+    } else if (commands.includes('interest')) {
+      const landingId = argv['landingId'] || ''
+
+      v && console.log('Interest')
+      v && console.log('  landingId:', body)
+      if (!accessToken) { accessToken = await auth() }
+      if (!landingId) { return console.error('Error: No landingId specified.') }
+      const reply = await interest({
+        accessToken,
+        landingId,
       })
       v && console.log('Reply:')
       console.log(JSON.stringify(reply))
