@@ -62,6 +62,17 @@ Self-developing AI refers to artificial intelligence systems that have the capab
 It's important to note that while the idea of self-developing AI is a significant area of research and promises many benefits, it also raises ethical and safety concerns. For example, if AI systems operate without sufficient oversight, they could make decisions that are unintended or harmful. As such, the development and deployment of self-developing AI systems necessitate careful consideration of governance, accountability, and ethical implications.
 ```
 
+### Mail
+
+Send an email message.
+```bash
+selfdev mail --to='2@az1.ai' --from='admin@vuics.com' --subject='Email Test' --text='Hello, World!'
+```
+Example output:
+```bash
+{ result: 'ok' }
+```
+
 ## Use in Jupyter Notebook
 
 It is possible to use the selfdev-js directly from your Jupyter Notebooks.

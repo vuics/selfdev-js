@@ -28,12 +28,14 @@ ${appName} <command> [arguments]
 
 Commands:
   ask --prompt='text'
+  mail [--from='email'] [--to='email'] --subject='text' --text='text'
 
 Arguments:
   -v - verbose mode
 
 Examples:
   ${appName} ask --prompt='What is self-developing AI?'
+  ${appName} mail --to='2@az1.ai' --from='admin@vuics.com' --subject='Email Test' --text='Hello, World!'
 `
 
 const auth = async () => {
@@ -83,23 +85,67 @@ const ask = async ({ accessToken, prompt }) => {
   }
 }
 
+const mail = async ({ accessToken, to, from, subject, text }) => {
+  let res = null
+  try {
+    res = await axios.post(`${apiUrl}/mail/api`, {
+      to,
+      from,
+      subject,
+      text,
+    }, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    })
+    // console.log('mail res.data:', res.data)
+    return res.data
+  } catch (err) {
+    console.error('Error:', err)
+  }
+}
+
 const main = async () => {
   try {
     let accessToken = null
     const v = argv['v']
     const commands = argv['_']
     const prompt = argv['prompt'] || ''
+    const to = argv['to'] || ''
+    const from = argv['from'] || ''
+    const subject = argv['subject'] || ''
+    const text = argv['text'] || ''
 
     v && console.log('Arguments:', argv)
-    v && console.log('Prompt:', prompt)
 
     if (commands.includes('ask')) {
       v && console.log('Ask')
+      v && console.log('  prompt:', prompt)
       if (!accessToken) { accessToken = await auth() }
       if (!prompt) { return console.error('Error: No prompt specified.') }
       const { reply } = await ask({
         accessToken,
         prompt,
+      })
+      v && console.log('Reply:')
+      console.log(reply)
+
+    } else if (commands.includes('mail')) {
+      v && console.log('Mail')
+      v && console.log('  to:', to)
+      v && console.log('  from:', from)
+      v && console.log('  subject:', subject)
+      v && console.log('  text:', text)
+      if (!accessToken) { accessToken = await auth() }
+      if (!subject) { return console.error('Error: No subject specified.') }
+      if (!text) { return console.error('Error: No text specified.') }
+      const reply = await mail({
+        accessToken,
+        from,
+        to,
+        subject,
+        text,
       })
       v && console.log('Reply:')
       console.log(reply)
