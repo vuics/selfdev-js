@@ -77,15 +77,8 @@ Example output:
 
 ```bash
 html="""
-<!DOCTYPE html>
-<html>
-<body>
-
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
-
-</body>
-</html>
 """
 
 selfdev land --title='My Landing Page' --favicon='http://oflisback.github.io/react-favicon/img/github.ico' --body='{html}'
