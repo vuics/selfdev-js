@@ -16,9 +16,9 @@ if (result.error) {
     : console.error('.env error:', result.error)
 }
 
-// TODO: use az1.ai domain
+// TODO: use hyag.org domain
 const apiUrl = process.env.SELFDEV_API_URL ||
-  'https://api.selfdev.vuics.com/v1'
+  'https://api.hyag.org/v1'
   // 'http://localhost:6368/v1'
 const apiKey = process.env.SELFDEV_API_KEY || '<YOUR_KEY>'
 const appName = process.env.SELFDEV_APP_NAME || basename(process.argv[1]) || 'selfdev'
@@ -37,7 +37,7 @@ Arguments:
 
 Examples:
   ${appName} ask --prompt='What is self-developing AI?'
-  ${appName} mail --to='2@az1.ai' --from='admin@vuics.com' --subject='Email Test' --text='Hello, World!'
+  ${appName} mail --to='admin@vuics.com' --from='admin@vuics.com' --subject='Email Test' --text='Hello, World!'
   ${appName} land --body='<div>Hello, World!</div>' --title='Title' --favicon='http://oflisback.github.io/react-favicon/img/github.ico' --interestForm='true'
   ${appName} interest --landingId='676c39ace1a826483fc23c8f'
 `

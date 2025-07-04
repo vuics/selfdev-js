@@ -1,6 +1,6 @@
 # selfdev-js
 
-The selfdev-js is a command line tool for interacting with the [Self-developing](https://az1.ai) API.
+The selfdev-js is a command line tool for interacting with the [Self-developing](https://hyag.org) API.
 
 You can read the [API.md](./API.md) document to learn more about the Self-developing API.
 
@@ -19,11 +19,11 @@ npm i
 
 ## Setup
 
-TODO: use az1.ai domain
-Create an API key on [Self-developing](https://selfdev.vuics.com/keys).
+TODO: use hyag.org domain
+Create an API key on [Self-developing](https://hyag.org/keys).
 Create `.env` file with the following content:
 ```
-SELFDEV_API_URL=https://api.selfdev.vuics.com/v1
+SELFDEV_API_URL=https://api.hyag.org/v1
 SELFDEV_API_KEY=<GET_API_KEY_ON_SELFDEV>
 ```
 
@@ -66,7 +66,7 @@ It's important to note that while the idea of self-developing AI is a significan
 
 Send an email message.
 ```bash
-selfdev mail --to='2@az1.ai' --from='admin@vuics.com' --subject='Email Test' --text='Hello, World!'
+selfdev mail --to='admin@vuics.com' --from='admin@vuics.com' --subject='Email Test' --text='Hello, World!'
 ```
 Example output:
 ```bash

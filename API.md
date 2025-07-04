@@ -4,11 +4,11 @@ This developer's guide explainse how to access Self-developing API using program
 
 ## Authorization
 
-TODO: use az1.ai domain.
-Go to [https://selfdev.vuics.com/keys](https://selfdev.vuics.com/keys) and create an API Key.
+TODO: use hyag.org domain.
+Go to [https://hyag.org/keys](https://hyag.org/keys) and create an API Key.
 Set the environment variables:
 ```bash
-export SELFDEV_API_URL=https://api.selfdev.vuics.com/v1
+export SELFDEV_API_URL=https://api.hyag.org/v1
 export SELFDEV_API_KEY=<YOUR_KEY>
 ```
 
