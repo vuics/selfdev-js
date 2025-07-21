@@ -8,7 +8,6 @@ You can read the [API.md](./API.md) document to learn more about the Self-develo
 
 You can install the package from NPM globally:
 ```bash
-# TODO: use az1 organization on npm
 npm i -g @vuics/selfdev-js
 ```
 
