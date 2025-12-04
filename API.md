@@ -4,11 +4,11 @@ This developer's guide explainse how to access Self-developing API using program
 
 ## Authorization
 
-TODO: use hyag.org domain.
-Go to [https://hyag.org/keys](https://hyag.org/keys) and create an API Key.
+TODO: use h9y.ai domain.
+Go to [https://h9y.ai/keys](https://h9y.ai/keys) and create an API Key.
 Set the environment variables:
 ```bash
-export SELFDEV_API_URL=https://api.hyag.org/v1
+export SELFDEV_API_URL=https://api.h9y.ai/v1
 export SELFDEV_API_KEY=<YOUR_KEY>
 ```
 

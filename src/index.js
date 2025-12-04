@@ -16,9 +16,9 @@ if (result.error) {
     : console.error('.env error:', result.error)
 }
 
-// TODO: use hyag.org domain
+// TODO: use h9y.ai domain
 const apiUrl = process.env.SELFDEV_API_URL ||
-  'https://api.hyag.org/v1'
+  'https://api.h9y.ai/v1'
   // 'http://localhost:6368/v1'
 const apiKey = process.env.SELFDEV_API_KEY || '<YOUR_KEY>'
 const appName = process.env.SELFDEV_APP_NAME || basename(process.argv[1]) || 'selfdev'

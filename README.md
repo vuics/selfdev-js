@@ -1,6 +1,6 @@
 # selfdev-js
 
-The selfdev-js is a command line tool for interacting with the [Self-developing](https://hyag.org) API.
+The selfdev-js is a command line tool for interacting with the [Self-developing](https://h9y.ai) API.
 
 You can read the [API.md](./API.md) document to learn more about the Self-developing API.
 
@@ -18,11 +18,11 @@ npm i
 
 ## Setup
 
-TODO: use hyag.org domain
-Create an API key on [Self-developing](https://hyag.org/keys).
+TODO: use h9y.ai domain
+Create an API key on [Self-developing](https://h9y.ai/keys).
 Create `.env` file with the following content:
 ```
-SELFDEV_API_URL=https://api.hyag.org/v1
+SELFDEV_API_URL=https://api.h9y.ai/v1
 SELFDEV_API_KEY=<GET_API_KEY_ON_SELFDEV>
 ```
 
